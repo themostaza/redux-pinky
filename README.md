@@ -24,10 +24,10 @@ const login = (email, password) => ({
 })
 ```
 
-The above action will result in the dispatch of the following actions:
-- When the action is dispatched (immediately): `{ type: LOGIN_REQUEST }`
-- If the promise succeeds: `{ type: LOGIN_SUCCESS, payload: result }`, with the result of the promise in the payload field
-- If the promise fails: `{ type: LOGIN_FAILURE, payload: error }`, with the rejection error of the promise in the payload field
+Whenever an action has a `promise` field it will be handled by redux-pinky, that will always dispatch the following:
+- `{ type: LOGIN_REQUEST }`: Dispatched immediately
+- `{ type: LOGIN_SUCCESS, payload: result }`: Dispatched only if the promise succeeds (the result of the promise is in the payload field)
+- `{ type: LOGIN_FAILURE, payload: error }`: Dispatched only if the promise fails (the result of the promise is in the payload field)
 
 # Credits
-This middleware is just a more "declarative" version of [redux-pack](https://github.com/lelandrichardson/redux-pack): no `handler`, just actions.
+This middleware is just a more "redux vanilla" version of [redux-pack](https://github.com/lelandrichardson/redux-pack).
