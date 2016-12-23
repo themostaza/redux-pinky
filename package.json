@@ -1,0 +1,26 @@
+{
+  "name": "redux-pink",
+  "version": "1.0.0",
+  "description": "Yet another Redux middleware for dispatching async actions",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run build:clean && npm run build:lib",
+    "build:clean": "rm -rf lib",
+    "build:lib": "babel -d lib src",
+    "prepublish": "npm run build",
+    "lint": "eslint src",
+    "reset": "rm -rf node_modules/ && npm cache clean && npm prune"
+  },
+  "dependencies": {
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-core": "6.21.0",
+    "babel-eslint": "7.1.1",
+    "babel-preset-react-native": "1.9.1",
+    "eslint": "3.12.2",
+    "eslint-config-mostaza-base": "1.14.0",
+    "eslint-plugin-import": "2.2.0"
+  }
+}
