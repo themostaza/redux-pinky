@@ -30,7 +30,14 @@ Whenever an action has a `promise` field it will be handled by redux-pinky, that
 - `{ type: LOGIN_FAILURE, payload: error }`: Dispatched only if the promise fails (the result of the promise is in the payload field)
 
 # Examples
-1. A simple way to dispatch a series of promises/async operations:
+#### 1. Basic usage:
+```javascript
+const initializeApp = () ({
+  type: 'INITIALIZE_APP',
+  promise: yourAPI.initialize()
+})
+```
+#### 2. A simple way to dispatch a series of promises/async operations usinc `async-await`:
 ```javascript
 const initializeApp = () ({
   type: 'INITIALIZE_APP',
@@ -42,4 +49,4 @@ const initializeApp = () ({
 ```
 
 # Credits
-This middleware is just a more "redux vanilla" version of [redux-pack](https://github.com/lelandrichardson/redux-pack).
+This middleware is just a more "redux vanilla" version of [redux-pack](https://github.com/lelandrichardson/redux-pack) (We needed a more standard way of handling the action results).
