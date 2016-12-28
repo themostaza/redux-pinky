@@ -32,7 +32,7 @@ Whenever an action has a `promise` field it will be handled by redux-pinky, that
 - `{ type: LOGIN_SUCCESS, payload: result }`: Dispatched only if the promise succeeds (the result of the promise is in the payload field)
 - `{ type: LOGIN_FAILURE, payload: error }`: Dispatched only if the promise fails (the result of the promise is in the payload field)
   
- # Adding side-effects with event hooks
+# Adding side-effects with event hooks
 You might want to add side effects (like sending analytics events or navigate to different views) based on promise results.
 You can do thusing the hooks of the `meta` object of the action.
 
