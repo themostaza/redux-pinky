@@ -34,7 +34,7 @@ Whenever an action has a `promise` field it will be handled by redux-pinky, that
   
 # Adding side-effects with event hooks
 You might want to add side effects (like sending analytics events or navigate to different views) based on promise results.
-You can do thusing the hooks of the `meta` object of the action.
+You can do it using the hooks of the `meta` object of the action.
 
 Here are the available hooks and their associated payload:
 - onStart, called with the initial action payload value
