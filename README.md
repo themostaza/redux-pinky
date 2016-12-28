@@ -49,4 +49,4 @@ const initializeApp = () ({
 ```
 
 # Credits
-This middleware is just a more "redux vanilla" version of [redux-pack](https://github.com/lelandrichardson/redux-pack) (We needed a more standard way of handling the action results).
+This middleware is just a more "redux vanilla" version of [redux-pack](https://github.com/lelandrichardson/redux-pack) (we needed a more standard way of handling the action results).
