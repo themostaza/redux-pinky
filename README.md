@@ -3,7 +3,7 @@
 <br/>
 
 # Disclaimer
-Well... this middleware is a rip-off of [redux-pack](https://github.com/lelandrichardson/redux-pack): we just needed a more standard way of handling the action results :shaved_ice:
+This middleware is a rip-off of [redux-pack](https://github.com/lelandrichardson/redux-pack): we just needed a more standard way of handling the actions :shaved_ice:
 
 # Setup
 This library is available on npm, install it with: `npm install --save redux-pinky`.
