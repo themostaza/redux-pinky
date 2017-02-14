@@ -31,26 +31,30 @@ Whenever an action has a `promise` field it will be handled by redux-pinky, that
 - `{ type: LOGIN_REQUEST }`: Dispatched immediately
 - `{ type: LOGIN_SUCCESS, payload: result }`: Dispatched only if the promise succeeds (the result of the promise is in the payload field)
 - `{ type: LOGIN_FAILURE, payload: error }`: Dispatched only if the promise fails (the result of the promise is in the payload field)
-  
+
+Since release 2.0 you can also directly dispatch an action with the type `LOGIN_REQUEST` instead of `LOGIN` (just a matter of taste, redux-pinky will dispatch `LOGIN_REQUEST` regardless). 
+
 # Adding side-effects with event hooks
 You might want to add side effects (like sending analytics events or navigate to different views) based on promise results.
 You can do it using the hooks of the `meta` object of the action.
 
 Here are the available hooks and their associated payload:
-- onStart, called with the initial action payload value
-- onFinish, called with true if the promise resolved, false otherwise
-- onSuccess, called with the promise resolution value
-- onFailure, called with the promise error
+- onStart, function called with the initial action payload value
+- onFinish, function called with true if the promise resolved, false otherwise
+- onSuccess, function called with the promise resolution value
+- onFailure, function called with the promise error
+
+The last parameter of all the above functions is the store state (at the hook call time).
 
 # Examples
-#### 1. Basic usage:
+#### Basic usage:
 ```javascript
 const initializeApp = () => ({
   type: 'INITIALIZE_APP',
   promise: yourAPI.initialize()
 })
 ```
-#### 2. A simple way to dispatch a series of promises/async operations usinc `async-await`:
+#### A simple way to dispatch a series of promises/async operations usinc `async-await`:
 ```javascript
 const initializeApp = () => ({
   type: 'INITIALIZE_APP',
@@ -60,7 +64,7 @@ const initializeApp = () => ({
   })()
 })
 ```
-#### 3. Send analytics when an user downloads a file:
+#### Send analytics when an user downloads a file:
 ```javascript
 const downloadFile = (fileId) => {
   return {
@@ -75,4 +79,17 @@ const downloadFile = (fileId) => {
   }
 }
 ```
-
+#### Show an alert when the promise fails (React-Native):
+```javascript
+const downloadFile = (fileId) => {
+  return {
+    type: 'CHECK_CREDENTIALS',
+    promise: yourAPI.checkCredentials(userId),
+    meta: {
+      onFailure: (error, getState) => {
+        Alert.alert('Credentials check error', error.message)
+      }
+    }
+  }
+}
+```
