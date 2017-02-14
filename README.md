@@ -81,7 +81,7 @@ const downloadFile = (fileId) => {
 ```
 #### Show an alert when the promise fails (React-Native):
 ```javascript
-const downloadFile = (fileId) => {
+const checkCredentials = (fileId) => {
   return {
     type: 'CHECK_CREDENTIALS',
     promise: yourAPI.checkCredentials(userId),
