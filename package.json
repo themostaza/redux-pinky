@@ -1,6 +1,6 @@
 {
   "name": "redux-pinky",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Yet another Redux middleware for dispatching async actions",
   "main": "lib/index.js",
   "scripts": {
