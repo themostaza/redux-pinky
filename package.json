@@ -4,23 +4,28 @@
   "description": "Yet another Redux middleware for dispatching async actions",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npm run build:clean && npm run build:lib",
+    "build": "npm run build:clean && npm run build:lib && npm run build:flow",
     "build:clean": "rm -rf lib",
     "build:lib": "babel -d lib src",
+    "build:flow": "flow-copy-source -v src lib",
     "prepublish": "npm run build",
+    "flow": "flow",
     "lint": "eslint src",
     "reset": "rm -rf node_modules/ && npm cache clean && npm prune"
   },
   "dependencies": {
+    "flow-copy-source": "1.1.0",
     "uuid": "3.0.1"
   },
   "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-core": "6.21.0",
+    "babel-cli": "6.23.0",
+    "babel-core": "6.23.1",
     "babel-eslint": "7.1.1",
     "babel-preset-react-native": "1.9.1",
-    "eslint": "3.12.2",
-    "eslint-config-mostaza-base": "1.14.0",
-    "eslint-plugin-import": "2.2.0"
+    "eslint": "3.15.0",
+    "eslint-plugin-prettier": "2.0.0",
+    "eslint-plugin-react-app": "1.0.2",
+    "flow-bin": "0.39.0",
+    "prettier": "0.17.0"
   }
 }

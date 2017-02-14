@@ -1,9 +1,15 @@
 {
-  "extends": "eslint-config-mostaza-base",
-  "parser": "babel-eslint",
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
+  "extends": [
+    "plugin:react-app/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "trailingComma": true, 
+      "singleQuote": true
+    }]
   }
 }
