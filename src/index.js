@@ -5,9 +5,10 @@ export type AsyncParameters = {
   payload?: any,
   promise: Promise<any>,
   meta?: {
-    onStart?: (payload: any, state: any) => any,
-    onFinish?: (result: boolean, state: any) => any,
-    onFailure?: (error: any, state: any) => any,
+    onStart?: (payload: any, getState: () => any) => any,
+    onFinish?: (result: boolean, getState: () => any) => any,
+    onSuccess?: (payload: any, getState: () => any) => any,
+    onFailure?: (error: any, getState: () => any) => any,
   },
 };
 
@@ -60,6 +61,7 @@ export default (store: any) => (next: any) => (action: any) => {
       payload: data,
       meta: { ...meta, initialPayload, transactionId },
     });
+    handleEventHook(meta, 'onSuccess', data, store.getState);
     handleEventHook(meta, 'onFinish', true, store.getState);
   };
 
